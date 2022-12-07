@@ -27,8 +27,8 @@ export default class User extends BaseModel {
   static async update(
     { id, ...user }: Partial<User>,
     trx?: Transaction
-  ): Promise<User | undefined> {
-    if (id) return this.query(trx).patchAndFetchById(id, user);
+  ): Promise<User> {
+    return this.query(trx).patchAndFetchById(id || "", user);
   }
 
   static async get(id: string, trx?: Transaction): Promise<User | undefined> {

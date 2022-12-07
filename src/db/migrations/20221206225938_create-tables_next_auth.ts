@@ -10,6 +10,7 @@ export async function up(knex: Knex) {
     table.timestamp("email_verified");
     applyTimestampFields(table, knex);
   });
+
   await knex.schema.createTable("account", (table) => {
     table.uuid("id").defaultTo(knex.raw("uuid_generate_v4()")).primary();
     table
@@ -30,6 +31,7 @@ export async function up(knex: Knex) {
     table.unique(["provider_account_id", "provider"]);
     applyTimestampFields(table, knex);
   });
+
   await knex.schema.createTable("session", (table) => {
     table.uuid("id").defaultTo(knex.raw("uuid_generate_v4()")).primary();
     table.timestamp("expires").notNullable();
@@ -37,6 +39,7 @@ export async function up(knex: Knex) {
     table.uuid("user_id").references("user.id").onDelete("CASCADE");
     applyTimestampFields(table, knex);
   });
+
   await knex.schema.createTable("verification_token", (table) => {
     table.string("identifier");
     table.string("token");
