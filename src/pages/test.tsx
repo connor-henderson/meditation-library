@@ -1,13 +1,18 @@
+import { useSession } from "next-auth/react";
+
 const T = () => {
+  const { data: session, status } = useSession();
+  // console.log(session);
   const getRes = async () => {
-    const res = await fetch("http://localhost:3000/");
-    console.log(await res.text());
-    console.log("mes");
-    console.log("mes");
-    // console.log(mes);
+    const res = await fetch("http://localhost:3000/api/hello");
+    // console.log(await res.text());
   };
   getRes();
-  return <h1>test</h1>;
+  if (status === "authenticated") {
+    return <p>Signed in as {session?.user?.email}</p>;
+  }
+
+  return <a href="/api/auth/signin">Sign in</a>;
 };
 
 export default T;
