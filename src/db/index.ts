@@ -1,12 +1,22 @@
-import Knex from "knex";
-// @ts-ignore
-import knexStringcase from "knex-stringcase";
-import { Model } from "objection";
+import { Sequelize } from "sequelize";
 
-import config from "./knexfile";
+const developmentURI = "postgres://postgres:password@localhost:5432/mindfulnet";
+const testURI = `${developmentURI}_test`;
 
-const knex = Knex(knexStringcase(config));
+const getDatabaseConnectionString = () => {
+  if (process.env.NODE_ENV === "development") return developmentURI;
+  if (process.env.NODE_ENV === "test") return testURI;
+  if (process.env.DB_CONNECTION_STRING) return process.env.DB_CONNECTION_STRING;
 
-Model.knex(knex);
+  throw Error("No database connection string provided");
+};
 
-export default knex;
+const dbConnectionString = getDatabaseConnectionString();
+
+const sequelize = new Sequelize(dbConnectionString, {
+  host: "localhost",
+  dialect: "postgres",
+  ssl: true,
+});
+
+export default sequelize;
