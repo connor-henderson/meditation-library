@@ -5,7 +5,8 @@ const T = () => {
   console.log(session);
   const getRes = async () => {
     const res = await fetch("http://localhost:3000/api/hello");
-    console.log(await res.text());
+    const json = await res.json();
+    console.log(json[0].works);
   };
   getRes();
   if (status === "authenticated") {

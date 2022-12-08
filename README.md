@@ -1,6 +1,8 @@
 # Overview
 
-This is a text-first meditation library of freely available online content organized by author and medium.
+This is a text-only meditation library of freely available online content organized by author and source. The plan is to prioritize audio fed through a speect-to-text API (e.g., OpenAI Whisper) because that content is not yet available in text form.
+
+A library of meditation-specific text like this will probably be useful. For example, we can use the content to train ML models and offer highlights/annotations, favorite content, and usage stats to readers. The aim is to build out more of this functionality and make the dataset publicly available.
 
 ## Getting Started
 

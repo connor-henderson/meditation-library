@@ -1,5 +1,4 @@
-import { PrismaClient } from "@prisma/client";
-const prisma = new PrismaClient();
+import prisma from "../lib/prismadb";
 
 const main = async () => {
   try {
@@ -11,9 +10,12 @@ const main = async () => {
         image:
           "https://jackkornfield.com/wp-content/uploads/2014/01/Jack-Kornfield_201blkwht_DeborahJaffe.jpg",
         works: {
+          //@ts-ignore
           create: {
             title: "Heart Wisdom",
             sections: ["Episode 167 - The Perfection of Truthfulness"],
+            medium: "PODCAST",
+            externalUrl: "https://jackkornfield.com/podcasts-heart-wisdom/",
           },
         },
       },
