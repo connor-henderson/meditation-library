@@ -1,6 +1,6 @@
 import path from "path";
 import { loadEnvConfig } from "@next/env";
-import knex from "../db";
+import knex from "../db/config/config";
 
 loadEnvConfig(
   path.resolve(__dirname, "../../"),
