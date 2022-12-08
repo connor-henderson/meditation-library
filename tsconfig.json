@@ -24,10 +24,6 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "src/api/index.js",
-    "src/db/migrations/20221208011543-create-next-auth-tables.js",
-    "src/db/config/config.js",
-    "src/db/models/index.js"
   ],
   "exclude": [
     "node_modules"
