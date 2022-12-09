@@ -1,3 +1,4 @@
+import { Button } from "@mui/material";
 import { signOut, useSession } from "next-auth/react";
 
 const T = () => {
@@ -13,12 +14,12 @@ const T = () => {
     return (
       <>
         <p>Signed in as {session?.user?.email}</p>
-        <button onClick={() => signOut()}>Sign out</button>
+        <Button onClick={() => signOut()}>Sign out</Button>
       </>
     );
   }
 
-  return <a href="/api/auth/signin">Sign in</a>;
+  return <Button href="/api/auth/signin">Sign in</Button>;
 };
 
 export default T;
