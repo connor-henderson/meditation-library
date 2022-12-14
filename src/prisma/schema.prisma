@@ -73,7 +73,7 @@ model Work {
     authorId    String
     title       String
     medium      Medium
-    sections    Json? // Prisma implements "Json" as jsonb in postgres: https://www.prisma.io/docs/concepts/database-connectors/postgresql
+    sections    Json[] // Prisma implements "Json" as jsonb in postgres: https://www.prisma.io/docs/concepts/database-connectors/postgresql
     externalUrl String
     Author      Author @relation(fields: [authorId], references: [id])
 }

@@ -1,127 +1,116 @@
 {
-  "extends": "@ijsto",
-  "parser": "@typescript-eslint/parser",
-  "plugins": [
-    "@typescript-eslint",
-    "jest"
-  ],
-  "env": {
-    "jest/globals": true
-  },
-  "rules": {
-    "@typescript-eslint/await-thenable": "error",
-    "@typescript-eslint/no-dupe-class-members": [
-      "error"
+    "extends": [
+        "plugin:react/recommended",
+        "airbnb",
+        "prettier"
     ],
-    "@typescript-eslint/no-floating-promises": [
-      "error",
-      {
-        "ignoreIIFE": true
-      }
+    "parser": "@typescript-eslint/parser",
+    "plugins": [
+        "@typescript-eslint",
+        "jest"
     ],
-    "@typescript-eslint/no-unused-vars": [
-      "error",
-      {
-        "argsIgnorePattern": "^_",
-        "ignoreRestSiblings": true,
-        "varsIgnorePattern": "^_"
-      }
-    ],
-    "@typescript-eslint/no-shadow": "error",
-    "@typescript-eslint/no-useless-constructor": "error",
-    "@typescript-eslint/no-empty-function": "off",
-    "@typescript-eslint/promise-function-async": "error",
-    "comma-dangle": [
-      "error",
-      {
-        "arrays": "always-multiline",
-        "objects": "always-multiline",
-        "imports": "always-multiline",
-        "exports": "always-multiline",
-        "functions": "never"
-      }
-    ],
-    "consistent-return": "off",
-    "import/extensions": "off",
-    "import/no-extraneous-dependencies": [
-      "error",
-      {
-        "devDependencies": [
-          "src/e2e/**"
-        ]
-      }
-    ],
-    "import/no-unresolved": "off",
-    "jsx-a11y/no-noninteractive-element-interactions": "off",
-    "jsx-a11y/no-noninteractive-tabindex": "off",
-    "no-dupe-class-members": "off",
-    "no-empty-function": "off",
-    "no-param-reassign": [
-      "error",
-      {
-        "props": false
-      }
-    ],
-    "no-promise-executor-return": "off",
-    "no-unused-vars": "off",
-    "no-useless-constructor": "off",
-    "no-shadow": "off",
-    "no-void": "off",
-    "object-shorthand": [
-      "error",
-      "properties"
-    ],
-    "quotes": [
-      "error",
-      "single",
-      {
-        "avoidEscape": true
-      }
-    ],
-    "react/button-has-type": "off",
-    "react-hooks/exhaustive-deps": "off",
-    "react/jsx-filename-extension": [
-      "error",
-      {
-        "extensions": [
-          ".jsx",
-          ".tsx"
-        ]
-      }
-    ],
-    "react/no-danger": "off",
-    "sort-imports": [
-      "error",
-      {
-        "ignoreDeclarationSort": true
-      }
-    ],
-    "sort-keys": "off"
-  },
-  "overrides": [
-    {
-      "files": [
-        "*.ts",
-        "*.tsx"
-      ],
-      "parserOptions": {
-        "project": "tsconfig.json"
-      }
+    "env": {
+        "jest/globals": true
     },
-    {
-      "files": [
-        "*.graphql"
-      ],
-      "parser": "@graphql-eslint/eslint-plugin",
-      "plugins": [
-        "@graphql-eslint"
-      ],
-      "rules": {
-        "@typescript-eslint/await-thenable": "off",
-        "@typescript-eslint/no-floating-promises": "off",
-        "@typescript-eslint/promise-function-async": "off",
-        "spaced-comment": "off"
-      }
-    }
-  ]
+    "rules": {
+        "@typescript-eslint/await-thenable": "error",
+        "@typescript-eslint/no-dupe-class-members": [
+            "error"
+        ],
+        "@typescript-eslint/no-floating-promises": [
+            "error",
+            {
+                "ignoreIIFE": true
+            }
+        ],
+        "@typescript-eslint/no-unused-vars": [
+            "error",
+            {
+                "argsIgnorePattern": "^_",
+                "ignoreRestSiblings": true,
+                "varsIgnorePattern": "^_"
+            }
+        ],
+        "@typescript-eslint/no-shadow": "error",
+        "@typescript-eslint/no-useless-constructor": "error",
+        "@typescript-eslint/no-empty-function": "off",
+        "@typescript-eslint/promise-function-async": "error",
+        "comma-dangle": [
+            "error",
+            {
+                "arrays": "always-multiline",
+                "objects": "always-multiline",
+                "imports": "always-multiline",
+                "exports": "always-multiline",
+                "functions": "never"
+            }
+        ],
+        "consistent-return": "off",
+        "import/extensions": "off",
+        "import/no-extraneous-dependencies": [
+            "error",
+            {
+                "devDependencies": [
+                    "src/e2e/**"
+                ]
+            }
+        ],
+        "import/no-unresolved": "off",
+        "jsx-a11y/no-noninteractive-element-interactions": "off",
+        "jsx-a11y/no-noninteractive-tabindex": "off",
+        "no-dupe-class-members": "off",
+        "no-empty-function": "off",
+        "no-param-reassign": [
+            "error",
+            {
+                "props": false
+            }
+        ],
+        "no-promise-executor-return": "off",
+        "no-unused-vars": "off",
+        "no-useless-constructor": "off",
+        "no-shadow": "off",
+        "no-void": "off",
+        "object-shorthand": [
+            "error",
+            "properties"
+        ],
+        "quotes": [
+            "error",
+            "single",
+            {
+                "avoidEscape": true
+            }
+        ],
+        "react/button-has-type": "off",
+        "react-hooks/exhaustive-deps": "off",
+        "react/jsx-filename-extension": [
+            "error",
+            {
+                "extensions": [
+                    ".jsx",
+                    ".tsx"
+                ]
+            }
+        ],
+        "react/no-danger": "off",
+        "sort-imports": [
+            "error",
+            {
+                "ignoreDeclarationSort": true
+            }
+        ],
+        "sort-keys": "off"
+    },
+    "overrides": [
+        {
+            "files": [
+                "*.ts",
+                "*.tsx"
+            ],
+            "parserOptions": {
+                "project": "tsconfig.json"
+            }
+        }
+    ]
 }
