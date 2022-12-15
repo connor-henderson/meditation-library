@@ -1,19 +1,21 @@
 import "../../styles/globals.css";
 import type { AppProps } from "next/app";
 import { SessionProvider } from "next-auth/react";
-import { createTheme, CssBaseline, ThemeProvider } from "@mui/material";
+import { Button, CssBaseline, ThemeProvider } from "@mui/material";
+import theme from '../assets/theme';
+import themeDark from '../assets/theme-dark';
+import { useState } from "react";
 
-const theme = createTheme({
-  palette: {
-    mode: "light",
-  },
-});
+
 
 export default function App({ Component, pageProps }: AppProps) {
+  const [darkMode, setDarkMode] = useState(false);
+
   return (
-      <ThemeProvider theme={theme}>
+      <ThemeProvider theme={darkMode ? themeDark : theme}>
         <CssBaseline />
         <SessionProvider session={pageProps.session} refetchInterval={5 * 60}>
+        <Button onClick={() => setDarkMode(!darkMode)}>Toggle Dark Mode</Button>
           <Component {...pageProps} />
         </SessionProvider>
       </ThemeProvider>
