@@ -1,5 +1,3 @@
-// @ts-nocheck
-
 /**
 =========================================================
 * Material Dashboard 2 React - v2.1.0
@@ -157,3 +155,25 @@ export default createTheme({
     MuiDialogActions: { ...dialogActions },
   },
 });
+
+// TODO: edit the below
+declare module '@mui/material/styles' {
+  interface Theme {
+    status: {
+      danger: React.CSSProperties['color'];
+    };
+    transitions: any;
+  }
+
+  // interface PaletteColor {
+  //   darker?: string;
+  // }
+  // interface SimplePaletteColorOptions {
+  //   darker?: string;
+  // }
+  // interface ThemeOptions {
+  //   status: {
+  //     danger: React.CSSProperties['color'];
+  //   };
+  // }
+}

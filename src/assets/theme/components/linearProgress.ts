@@ -48,6 +48,6 @@ const linearProgress = {
       transition: "width 0.6s ease !important",
     },
   },
-};
+} as const;
 
 export default linearProgress;

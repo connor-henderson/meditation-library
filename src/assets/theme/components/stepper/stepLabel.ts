@@ -44,6 +44,6 @@ const stepLabel = {
       },
     },
   },
-};
+} as const;
 
 export default stepLabel;

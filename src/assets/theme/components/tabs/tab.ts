@@ -60,6 +60,6 @@ const tab = {
       paddingTop: pxToRem(4),
     },
   },
-};
+} as const;
 
 export default tab;

@@ -23,6 +23,6 @@ const appBar = {
       boxShadow: "none",
     },
   },
-};
+} as const;
 
 export default appBar;

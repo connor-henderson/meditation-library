@@ -34,6 +34,6 @@ const svgIcon = {
       fontSize: `${pxToRem(36)} !important`,
     },
   },
-};
+} as const;
 
 export default svgIcon;

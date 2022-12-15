@@ -95,6 +95,6 @@ const autocomplete = {
       },
     },
   },
-};
+} as const;
 
 export default autocomplete;

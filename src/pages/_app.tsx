@@ -7,7 +7,6 @@ import themeDark from '../assets/theme-dark';
 import { useState } from "react";
 
 
-
 export default function App({ Component, pageProps }: AppProps) {
   const [darkMode, setDarkMode] = useState(false);
 

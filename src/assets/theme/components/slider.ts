@@ -76,6 +76,6 @@ const slider = {
       "&.Mui-active": { boxShadow: boxShadow([0, 0], [0, 14], info.main, 0.16) },
     },
   },
-};
+} as const;
 
 export default slider;

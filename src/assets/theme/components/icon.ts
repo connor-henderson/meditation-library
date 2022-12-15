@@ -35,6 +35,6 @@ const icon = {
       fontSize: `${pxToRem(36)} !important`,
     },
   },
-};
+} as const;
 
 export default icon;

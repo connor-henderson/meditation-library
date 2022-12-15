@@ -41,6 +41,6 @@ const card = {
       overflow: "visible",
     },
   },
-};
+} as const; 
 
 export default card;
