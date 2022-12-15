@@ -44,6 +44,6 @@ const menu = {
       borderRadius: borderRadius.md,
     },
   },
-};
+} as const;
 
 export default menu;

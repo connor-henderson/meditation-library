@@ -87,16 +87,6 @@ export default createTheme({
   breakpoints: { ...breakpoints },
   palette: { ...colors },
   typography: { ...typography },
-  boxShadows: { ...boxShadows },
-  borders: { ...borders },
-  functions: {
-    boxShadow,
-    hexToRgb,
-    linearGradient,
-    pxToRem,
-    rgba,
-  },
-
   components: {
     MuiCssBaseline: {
       styleOverrides: {
@@ -158,12 +148,12 @@ export default createTheme({
 
 // TODO: edit the below
 declare module '@mui/material/styles' {
-  interface Theme {
-    status: {
-      danger: React.CSSProperties['color'];
-    };
-    transitions: any;
-  }
+  // interface Theme {
+  //   status: {
+  //     danger: React.CSSProperties['color'];
+  //   };
+  //   transitions: any;
+  // }
 
   // interface PaletteColor {
   //   darker?: string;
@@ -172,7 +162,7 @@ declare module '@mui/material/styles' {
   //   darker?: string;
   // }
   // interface ThemeOptions {
-  //   status: {
+  //   boxShadow: {
   //     danger: React.CSSProperties['color'];
   //   };
   // }

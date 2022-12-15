@@ -99,6 +99,6 @@ const buttonText = {
       boxShadow: "none",
     },
   },
-};
+} as const;
 
 export default buttonText;

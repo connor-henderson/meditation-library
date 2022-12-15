@@ -42,8 +42,8 @@ const tabs = {
     },
 
     fixed: {
-      overflow: "unset !important" as const,
-      overflowX: "unset !important" as const,
+      overflow: "unset",
+      overflowX: "unset",
     },
 
     vertical: {
