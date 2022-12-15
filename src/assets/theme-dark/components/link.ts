@@ -18,6 +18,6 @@ const link = {
     underline: "none",
     color: "inherit",
   },
-};
+} as const;
 
 export default link;

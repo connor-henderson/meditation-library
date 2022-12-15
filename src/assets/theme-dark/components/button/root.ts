@@ -48,6 +48,6 @@ const root = {
     fontSize: pxToRem(15),
     marginTop: pxToRem(-2),
   },
-};
+} as const;
 
 export default root;

@@ -27,7 +27,7 @@ const buttonText = {
   base: {
     backgroundColor: transparent.main,
     minHeight: pxToRem(37),
-    color: text.main,
+    color: text.primary,
     boxShadow: "none",
     padding: `${pxToRem(9)} ${pxToRem(24)}`,
 

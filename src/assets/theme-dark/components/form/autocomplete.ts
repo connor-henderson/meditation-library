@@ -34,7 +34,7 @@ const autocomplete = {
       boxShadow: md,
       padding: pxToRem(8),
       fontSize: size.sm,
-      color: text.main,
+      color: text.primary,
       textAlign: "left",
       backgroundColor: `${background.card} !important`,
       borderRadius: borderRadius.md,
@@ -49,7 +49,7 @@ const autocomplete = {
       padding: `${pxToRem(4.8)} ${pxToRem(16)}`,
       borderRadius: borderRadius.md,
       fontSize: size.sm,
-      color: text.main,
+      color: text.primary,
       transition: "background-color 300ms ease, color 300ms ease",
 
       "&:hover, &:focus, &.Mui-selected, &.Mui-selected:hover, &.Mui-selected:focus": {
@@ -65,7 +65,7 @@ const autocomplete = {
 
     noOptions: {
       fontSize: size.sm,
-      color: text.main,
+      color: text.primary,
     },
 
     groupLabel: {
@@ -74,7 +74,7 @@ const autocomplete = {
 
     loading: {
       fontSize: size.sm,
-      color: text.main,
+      color: text.primary,
     },
 
     tag: {
@@ -97,13 +97,13 @@ const autocomplete = {
     },
 
     popupIndicator: {
-      color: text.main,
+      color: text.primary,
     },
 
     clearIndicator: {
-      color: text.main,
+      color: text.primary,
     },
   },
-};
+} as const;
 
 export default autocomplete;

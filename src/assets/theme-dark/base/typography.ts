@@ -194,6 +194,6 @@ const typography = {
     md: 1.5,
     lg: 2,
   },
-};
+} as const;
 
 export default typography;

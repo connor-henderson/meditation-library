@@ -51,6 +51,6 @@ const tooltip = {
       color: black.main,
     },
   },
-};
+} as const;
 
 export default tooltip;

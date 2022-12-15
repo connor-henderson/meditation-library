@@ -68,6 +68,6 @@ const slider = {
       },
     },
   },
-};
+} as const;
 
 export default slider;

@@ -42,8 +42,8 @@ const tabs = {
     },
 
     fixed: {
-      overflow: "unset !important",
-      overflowX: "unset !important",
+      overflow: "unset",
+      overflowX: "unset",
     },
 
     vertical: {
@@ -60,6 +60,6 @@ const tabs = {
       transition: "all 500ms ease",
     },
   },
-};
+} as const;
 
 export default tabs;

@@ -44,6 +44,6 @@ const sidenav = {
       borderRight: "none",
     },
   },
-};
+} as const;
 
 export default sidenav;

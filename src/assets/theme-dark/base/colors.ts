@@ -27,8 +27,8 @@ const colors = {
   },
 
   text: {
-    main: "#ffffffcc",
-    focus: "#ffffffcc",
+    primary: "#ffffffcc",
+    secondary: "#ffffffcc",
   },
 
   transparent: {

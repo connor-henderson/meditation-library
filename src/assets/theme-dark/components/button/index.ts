@@ -41,6 +41,6 @@ const button = {
     textPrimary: { ...buttonText.primary },
     textSecondary: { ...buttonText.secondary },
   },
-};
+} as const;
 
 export default button;

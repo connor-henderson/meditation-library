@@ -38,12 +38,12 @@ const menu = {
       boxShadow: md,
       padding: `${pxToRem(16)} ${pxToRem(8)}`,
       fontSize: size.sm,
-      color: text.main,
+      color: text.primary,
       textAlign: "left",
       backgroundColor: `${background.card} !important`,
       borderRadius: borderRadius.md,
     },
   },
-};
+} as const;
 
 export default menu;

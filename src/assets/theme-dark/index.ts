@@ -1,5 +1,3 @@
-// @ts-nocheck
-
 /**
 =========================================================
 * Material Dashboard 2 React - v2.1.0
@@ -90,16 +88,6 @@ export default createTheme({
   breakpoints: { ...breakpoints },
   palette: { ...colors },
   typography: { ...typography },
-  boxShadows: { ...boxShadows },
-  borders: { ...borders },
-  functions: {
-    boxShadow,
-    hexToRgb,
-    linearGradient,
-    pxToRem,
-    rgba,
-  },
-
   components: {
     MuiCssBaseline: {
       styleOverrides: {
