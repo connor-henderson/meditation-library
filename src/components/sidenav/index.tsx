@@ -1,15 +1,18 @@
-import { Box, Divider, Icon, List, Typography } from '@mui/material';
+import { Box, Divider, Icon, List, Typography, useTheme } from '@mui/material';
 import { useState } from 'react';
 import StyledDrawer from './styled-drawer';
 import CloseIcon from '@mui/icons-material/Close';
 import NextLink from 'next/link';
-import { Link as MUILink } from '@mui/material';
 import SidenavCollapse from './styled-list-item';
 import sidenavLogoLabel from './styles';
 
 const Sidenav = () => {
   const [openSidenav, setOpenSidenav] = useState(true);
-  const textColor = 'dark';
+  const { palette } = useTheme();
+  const textColor = palette.mode === 'dark' ? 'white' : 'dark';
+
+  // use the path to determine the collapseName, i.e. const collapseName = location.pathname.replace("/", "");
+  const collapseName = Math.random() > 0.5 ? "authors" : "works";
 
   return (
     <StyledDrawer variant="permanent" open={openSidenav}>
@@ -40,10 +43,10 @@ const Sidenav = () => {
       <Divider light={false} />
       <List>
         <NextLink href="/authors" passHref>
-          <SidenavCollapse name="Authors" icon="book" />
+          <SidenavCollapse name="Authors" icon="book" active={"authors" === collapseName} />
         </NextLink>
         <NextLink href="/works" passHref>
-          <SidenavCollapse name="Works" icon="book" />
+          <SidenavCollapse name="Works" icon="book" active={"works" === collapseName} />
         </NextLink>
       </List>
     </StyledDrawer>

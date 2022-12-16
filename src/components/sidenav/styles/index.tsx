@@ -1,4 +1,5 @@
 import { Theme } from "@mui/material";
+import { blue } from "@mui/material/colors";
 import linearGradient from "../../../assets/theme/functions/linearGradient";
 import pxToRem from "../../../assets/theme/functions/pxToRem";
 import rgba from "../../../assets/theme/functions/rgba";
@@ -45,7 +46,7 @@ function collapseItem(theme: Theme, clickedLink: boolean) {
   
     return {
       background: clickedLink
-        ? linearGradient(gradients[palette.mode].main, gradients[palette.mode].state)
+        ? linearGradient(gradients["info"].main, gradients[palette.mode].state)
         : transparent.main,
       color:
         (!darkMode && !clickedLink)
@@ -69,7 +70,7 @@ function collapseItem(theme: Theme, clickedLink: boolean) {
       },
   
       "&:hover, &:focus": {
-        backgroundColor: rgba(!darkMode ? grey[400] : white.main, 0.2),
+        backgroundColor: rgba(!darkMode ? blue[400] : white.main, 0.2),
       },
     };
   }
