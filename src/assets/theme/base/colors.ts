@@ -30,6 +30,7 @@ const colors = {
 
   transparent: {
     main: "transparent",
+    focus: "transparent",
   },
 
   white: {

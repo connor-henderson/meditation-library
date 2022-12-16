@@ -73,11 +73,15 @@ import dialogTitle from "./components/dialog/dialogTitle";
 import dialogContent from "./components/dialog/dialogContent";
 import dialogContentText from "./components/dialog/dialogContentText";
 import dialogActions from "./components/dialog/dialogActions";
+import boxShadows from "./base/boxShadows";
+import borders from "./base/borders";
 
 export default createTheme({
   breakpoints: { ...breakpoints },
   palette: { ...colors },
   typography: { ...typography },
+  boxShadows: { ...boxShadows },
+  borders: { ...borders },
   components: {
     MuiCssBaseline: {
       styleOverrides: {
@@ -139,7 +143,7 @@ export default createTheme({
 
 
 declare module '@mui/material/styles' {
-  interface Theme {
+  export interface Theme {
     dark: {
       main: React.CSSProperties['color'];
       focus: React.CSSProperties['color'];

@@ -5,6 +5,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import NextLink from 'next/link';
 import { Link as MUILink } from '@mui/material';
 import SidenavCollapse from './styled-list-item';
+import sidenavLogoLabel from './styles';
 
 const Sidenav = () => {
   const [openSidenav, setOpenSidenav] = useState(true);
@@ -25,8 +26,7 @@ const Sidenav = () => {
         </Box>
         <Box display="flex" alignItems="center">
           <Box component="img" src="favicon.ico" alt="Brand" width="2rem" />
-          <Box // sx={(theme) => sidenavLogoLabel(theme, { miniSidenav })}
-          >
+          <Box sx={(theme) => sidenavLogoLabel(theme, openSidenav)}>
             <Typography
               component="h6"
               variant="button"
