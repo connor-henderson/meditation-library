@@ -2,20 +2,22 @@ import { Box, Divider, Icon, List, Typography, useTheme } from '@mui/material';
 import { useState } from 'react';
 import StyledDrawer from './styled-drawer';
 import CloseIcon from '@mui/icons-material/Close';
-import NextLink from 'next/link';
 import SidenavCollapse from './styled-list-item';
 import sidenavLogoLabel from './styles';
 
-const Sidenav = () => {
-  const [openSidenav, setOpenSidenav] = useState(true);
-  const { palette } = useTheme();
-  const textColor = palette.mode === 'dark' ? 'white' : 'dark';
+type PropTypes = {
+  miniSidenav: boolean;
+  setMiniSidenav: (miniSidenav: boolean) => void;
+};
+
+const Sidenav = ({ miniSidenav, setMiniSidenav }: PropTypes) => {
+  const textColor = 'white';
 
   // use the path to determine the collapseName, i.e. const collapseName = location.pathname.replace("/", "");
-  const collapseName = Math.random() > 0.5 ? "authors" : "works";
+  const collapseName = Math.random() > 0.5 ? 'authors' : 'works';
 
   return (
-    <StyledDrawer variant="permanent" open={openSidenav}>
+    <StyledDrawer variant="permanent" open={!miniSidenav}>
       <Box pt={3} pb={1} px={4} textAlign="center">
         <Box
           display={{ xs: 'block', xl: 'none' }}
@@ -23,13 +25,13 @@ const Sidenav = () => {
           top={0}
           right={0}
           p={1.625}
-          onClick={() => setOpenSidenav(false)}
+          onClick={() => setMiniSidenav(true)}
           sx={{ cursor: 'pointer' }}>
           <CloseIcon fontSize="small" />
         </Box>
         <Box display="flex" alignItems="center">
           <Box component="img" src="favicon.ico" alt="Brand" width="2rem" />
-          <Box sx={(theme) => sidenavLogoLabel(theme, openSidenav)}>
+          <Box sx={(theme) => sidenavLogoLabel(theme, miniSidenav)}>
             <Typography
               component="h6"
               variant="button"
@@ -42,12 +44,18 @@ const Sidenav = () => {
       </Box>
       <Divider light={false} />
       <List>
-        <NextLink href="/authors" passHref>
-          <SidenavCollapse name="Authors" icon="book" active={"authors" === collapseName} />
-        </NextLink>
-        <NextLink href="/works" passHref>
-          <SidenavCollapse name="Works" icon="book" active={"works" === collapseName} />
-        </NextLink>
+        <SidenavCollapse
+          name="Authors"
+          icon="book"
+          active={'authors' === collapseName}
+          miniSidenav
+        />
+        <SidenavCollapse
+          name="Works"
+          icon="book"
+          active={'works' === collapseName}
+          miniSidenav
+        />
       </List>
     </StyledDrawer>
   );

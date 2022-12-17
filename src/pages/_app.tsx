@@ -19,8 +19,8 @@ export default function App({ Component, pageProps }: AppProps) {
       <CssBaseline />
       <Icon></Icon>
       <SessionProvider session={pageProps.session} refetchInterval={5 * 60}>
-        <Button onClick={() => setDarkMode(!darkMode)}>Toggle Dark Mode</Button>
         <Component {...pageProps} />
+        <Button onClick={() => setDarkMode(!darkMode)}>Toggle Dark Mode</Button>
       </SessionProvider>
     </ThemeProvider>
   );

@@ -27,26 +27,30 @@ import {
   collapseItem,
   collapseText,
 } from './styles';
+import NextLink from 'next/link';
 
 type PropTypes = {
   icon: string;
   name: string;
   active: boolean;
+  miniSidenav: boolean;
 };
 
-function SidenavCollapse({ icon, name, active }: PropTypes) {
+function SidenavCollapse({ icon, name, active, miniSidenav }: PropTypes) {
   return (
-    <ListItem component="li">
-      <Box sx={(theme) => collapseItem(theme, active)}>
-        <ListItemIcon sx={(theme) => collapseIconBox(theme, active)}>
-          <Icon sx={(theme) => collapseIcon(theme, active)}>{icon}</Icon>
-        </ListItemIcon>
-        <ListItemText
-          primary={name}
-          sx={(theme) => collapseText(theme, active)}
-        />
-      </Box>
-    </ListItem>
+    <NextLink href={`/${name}`} passHref>
+      <ListItem component="li">
+        <Box sx={(theme) => collapseItem(theme, active)}>
+          <ListItemIcon sx={(theme) => collapseIconBox(theme, active)}>
+            <Icon sx={(theme) => collapseIcon(theme, active)}>{icon}</Icon>
+          </ListItemIcon>
+          <ListItemText
+            primary={name}
+            sx={(theme) => collapseText(theme, active, miniSidenav)}
+          />
+        </Box>
+      </ListItem>
+    </NextLink>
   );
 }
 

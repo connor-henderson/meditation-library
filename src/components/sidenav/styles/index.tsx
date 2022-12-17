@@ -1,9 +1,3 @@
-import { Theme } from "@mui/material";
-import { blue } from "@mui/material/colors";
-import linearGradient from "../../../assets/theme/functions/linearGradient";
-import pxToRem from "../../../assets/theme/functions/pxToRem";
-import rgba from "../../../assets/theme/functions/rgba";
-
 /**
 =========================================================
 * Material Dashboard 2 React - v2.1.0
@@ -18,22 +12,25 @@ Coded by www.creative-tim.com
 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 */
-export default function sidenavLogoLabel(theme: Theme, clickedLink: boolean) {
+
+import { Theme } from "@mui/material";
+import { blue, blueGrey } from "@mui/material/colors";
+import linearGradient from "../../../assets/theme/functions/linearGradient";
+import pxToRem from "../../../assets/theme/functions/pxToRem";
+import rgba from "../../../assets/theme/functions/rgba";
+
+export default function sidenavLogoLabel(theme: Theme, miniSidenav: boolean) {
     const { transitions, typography, breakpoints } = theme;
     const { fontWeightMedium } = typography;
   
     return {
-      ml: 0.5,
+      ml: 1,
       fontWeight: fontWeightMedium,
       wordSpacing: pxToRem(-1),
       transition: transitions.create("opacity", {
         easing: transitions.easing.easeInOut,
         duration: transitions.duration.standard,
       }),
-  
-      [breakpoints.up("xl")]: {
-        opacity: clickedLink ? 1 : 0,
-      },
     };
   }
   
@@ -46,7 +43,7 @@ function collapseItem(theme: Theme, clickedLink: boolean) {
   
     return {
       background: clickedLink
-        ? linearGradient(gradients["info"].main, gradients[palette.mode].state)
+        ? linearGradient(gradients[palette.mode].state, gradients["info"].main)
         : transparent.main,
       color:
         (!darkMode && !clickedLink)
@@ -85,10 +82,7 @@ function collapseItem(theme: Theme, clickedLink: boolean) {
     return {
       minWidth: pxToRem(32),
       minHeight: pxToRem(32),
-      color:
-        (!darkMode && !clickedLink)
-          ? dark.main
-          : white.main,
+      color: (!darkMode && clickedLink) ? dark.main : white.main, // icon color whiteSidenav && !active ? dark.main : white.main,
       borderRadius: borderRadius.md,
       display: "grid",
       placeItems: "center",
@@ -98,7 +92,7 @@ function collapseItem(theme: Theme, clickedLink: boolean) {
       }),
   
       "& svg, svg g": {
-        color: !darkMode ? dark.main : white.main,
+        color: (!darkMode && clickedLink) ? dark.main : white.main,
       },
     };
   }
@@ -107,18 +101,18 @@ function collapseItem(theme: Theme, clickedLink: boolean) {
     color: clickedLink ? white.main : gradients.dark.state,
   });
   
-  function collapseText(theme: Theme, clickedLink: boolean) {
+  function collapseText(theme: Theme, active: boolean, miniSidenav: boolean) {
     const { typography, transitions, breakpoints } = theme;
-  
     const { size, fontWeightRegular, fontWeightLight } = typography;
   
     return {
       marginLeft: pxToRem(10),
+      color: blueGrey,
   
       [breakpoints.up("xl")]: {
-        opacity: clickedLink ? 0 : 1,
-        maxWidth: clickedLink ? 0 : "100%",
-        marginLeft: clickedLink ? 0 : pxToRem(10),
+        maxWidth: miniSidenav ? 0 : "100%", // change to 'miniSidenav'
+        marginLeft: miniSidenav ? 0 : pxToRem(10), // change to 'miniSidenav'
+        opacity: miniSidenav ? 1 : 0,
         transition: transitions.create(["opacity", "margin"], {
           easing: transitions.easing.easeInOut,
           duration: transitions.duration.standard,
@@ -126,7 +120,7 @@ function collapseItem(theme: Theme, clickedLink: boolean) {
       },
   
       "& span": {
-        fontWeight: clickedLink ? fontWeightRegular : fontWeightLight,
+        fontWeight: active ? fontWeightRegular : fontWeightLight,
         fontSize: size.sm,
         lineHeight: 0,
       },
