@@ -20,6 +20,8 @@ Coded by www.creative-tim.com
  */
 
 const colors = {
+  mode: 'dark',
+  
   background: {
     default: "#1a2035",
     sidenav: "#1f283e",

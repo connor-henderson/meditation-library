@@ -18,6 +18,7 @@ declare module '@mui/material/styles' {
     white: CoreColor;
     transparent: CoreColor; 
     dark: CoreColor;
+    mode: 'light' | 'dark';
   }
 
   interface PaletteOptions {
@@ -25,6 +26,7 @@ declare module '@mui/material/styles' {
     white: CoreColor;
     transparent: CoreColor; 
     dark: CoreColor;
+    mode: 'light' | 'dark';
   }
 
   interface Typography {

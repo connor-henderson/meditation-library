@@ -29,11 +29,14 @@ const divider = {
       backgroundImage: `linear-gradient(to right, ${rgba(dark.main, 0)}, ${rgba(
         dark.main,
         0.4
-      )}, ${rgba(dark.main, 0)}) !important`,
+      )}, ${rgba(dark.main, 0)})`,
       height: pxToRem(1),
       margin: `${pxToRem(16)} 0`,
       borderBottom: "none",
-      opacity: 0.25,
+      opacity: 0.75,
+      borderWidth: pxToRem(1),
+      display: 'flex',
+      alignItems: 'center'
     },
 
     vertical: {

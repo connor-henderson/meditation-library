@@ -20,6 +20,8 @@ Coded by www.creative-tim.com
  */
 
 const colors = {
+  mode: 'light',
+  
   background: {
     default: "#f0f2f5",
   },
@@ -258,6 +260,6 @@ const colors = {
   tabs: {
     indicator: { boxShadow: "#ddd" },
   },
-};
+} as const; 
 
 export default colors;

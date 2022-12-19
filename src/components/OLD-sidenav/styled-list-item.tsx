@@ -37,21 +37,22 @@ type PropTypes = {
 };
 
 function SidenavCollapse({ icon, name, active, miniSidenav }: PropTypes) {
-  return (
-    <NextLink href={`/${name}`} passHref>
-      <ListItem component="li">
-        <Box sx={(theme) => collapseItem(theme, active)}>
-          <ListItemIcon sx={(theme) => collapseIconBox(theme, active)}>
-            <Icon sx={(theme) => collapseIcon(theme, active)}>{icon}</Icon>
-          </ListItemIcon>
-          <ListItemText
-            primary={name}
-            sx={(theme) => collapseText(theme, active, miniSidenav)}
-          />
-        </Box>
-      </ListItem>
-    </NextLink>
-  );
+  return <p>test</p>
+  // return (
+  //   <NextLink href={`/${name}`} passHref>
+  //     <ListItem component="li">
+  //       <Box sx={(theme) => collapseItem(theme, active)}>
+  //         <ListItemIcon sx={(theme) => collapseIconBox(theme, active)}>
+  //           <Icon sx={(theme) => collapseIcon(theme, active)}>{icon}</Icon>
+  //         </ListItemIcon>
+  //         <ListItemText
+  //           primary={name}
+  //           sx={(theme) => collapseText(theme, active, miniSidenav)}
+  //         />
+  //       </Box>
+  //     </ListItem>
+  //   </NextLink>
+  // );
 }
 
 export default SidenavCollapse;

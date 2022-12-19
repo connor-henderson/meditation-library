@@ -1,7 +1,7 @@
 import { Typography } from "@mui/material";
 import { useState } from "react";
 import Navbar from "../components/NavBar";
-import Sidenav from "../components/sidenav"
+import Sidenav from "../components/OLD-sidenav"
 
 const Home = () => {
     const [miniSidenav, setMiniSidenav] = useState(false);

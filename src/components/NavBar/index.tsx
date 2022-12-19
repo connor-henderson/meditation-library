@@ -28,7 +28,6 @@ const Navbar = ({ setMiniSidenav, miniSidenav }: PropTypes) => {
   const handleMiniSidenav = () => setMiniSidenav(!miniSidenav);
   const router = useRouter();
   const routes = router.asPath.split('/');
-  console.log(miniSidenav)
 
   return (
     <AppBar component="nav" >
@@ -46,11 +45,11 @@ const Navbar = ({ setMiniSidenav, miniSidenav }: PropTypes) => {
             </Icon>
           </IconButton>
           <Breadcrumbs aria-label="breadcrumb">
-            {routes.map((r) => (
+            {/* {routes.map((r) => (
               <NextLink href={r} key={r}>
                 {r}
               </NextLink>
-            ))}
+            ))} */}
           </Breadcrumbs>
         </Box>
         <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
