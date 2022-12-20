@@ -109,15 +109,15 @@ function collapseItem(theme: Theme, clickedLink: boolean) {
       marginLeft: pxToRem(10),
       color: blueGrey,
   
-      [breakpoints.up("xl")]: {
-        maxWidth: miniSidenav ? 0 : "100%", // change to 'miniSidenav'
-        marginLeft: miniSidenav ? 0 : pxToRem(10), // change to 'miniSidenav'
-        opacity: miniSidenav ? 1 : 0,
-        transition: transitions.create(["opacity", "margin"], {
-          easing: transitions.easing.easeInOut,
-          duration: transitions.duration.standard,
-        }),
-      },
+      // [breakpoints.up("xl")]: {
+      //   maxWidth: miniSidenav ? 0 : "100%", // change to 'miniSidenav'
+      //   marginLeft: miniSidenav ? 0 : pxToRem(10), // change to 'miniSidenav'
+      //   opacity: miniSidenav ? 1 : 0,
+      //   transition: transitions.create(["opacity", "margin"], {
+      //     easing: transitions.easing.easeInOut,
+      //     duration: transitions.duration.standard,
+      //   }),
+      // },
   
       "& span": {
         fontWeight: active ? fontWeightRegular : fontWeightLight,

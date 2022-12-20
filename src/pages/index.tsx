@@ -1,5 +1,12 @@
-import { Typography } from '@mui/material';
+import { Box, Typography, useTheme } from '@mui/material';
+import linearGradient from '../assets/theme/functions/linearGradient';
+import rgba from '../assets/theme/functions/rgba';
 
 export default function Home() {
-  return <Typography variant="h1">Home</Typography>;
+  const { palette: { gradients } } = useTheme();
+  return (
+    <>
+      <Typography variant="h1">Home</Typography>
+    </>
+  );
 }

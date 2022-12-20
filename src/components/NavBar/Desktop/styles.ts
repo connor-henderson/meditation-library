@@ -7,7 +7,6 @@ const navbarContainer: SxProps<Theme> = {
   pt: 0.5,
   pb: 0.5,
   color: "text.primary",
-  marginLeft: 31,
   backgroundColor: "background.default"
 };
 

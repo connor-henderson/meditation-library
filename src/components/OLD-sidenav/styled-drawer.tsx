@@ -16,7 +16,7 @@ export default styled(Drawer)(({ theme, open }) => {
       duration: transitions.duration.shorter,
     }),
 
-    [breakpoints.up('xl')]: {
+    [breakpoints.up('lg')]: {
       marginBottom: 'inherit',
       left: '0',
       width: 250,
@@ -37,7 +37,7 @@ export default styled(Drawer)(({ theme, open }) => {
         duration: transitions.duration.shorter,
       }),
 
-      [breakpoints.up("xl")]: {
+      [breakpoints.up("lg")]: {
         marginBottom: "inherit",
         left: "0",
         width: pxToRem(96),

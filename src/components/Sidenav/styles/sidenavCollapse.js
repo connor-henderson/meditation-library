@@ -40,7 +40,7 @@ function collapseItem(theme, ownerState) {
     userSelect: "none",
     whiteSpace: "nowrap",
     boxShadow: "none",
-    [breakpoints.up("xl")]: {
+    [breakpoints.up("lg")]: {
       transition: transitions.create(["box-shadow", "background-color"], {
         easing: transitions.easing.easeInOut,
         duration: transitions.duration.shorter,
@@ -99,7 +99,7 @@ function collapseText(theme, ownerState) {
   return {
     marginLeft: pxToRem(10),
 
-    [breakpoints.up("xl")]: {
+    [breakpoints.up("lg")]: {
       opacity: miniSidenav ? 0 : 1,
       maxWidth: miniSidenav ? 0 : "100%",
       marginLeft: miniSidenav ? 0 : pxToRem(10),

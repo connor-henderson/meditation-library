@@ -44,7 +44,7 @@ import { useRouter } from 'next/router';
 import { Box, Typography, useTheme } from '@mui/material';
 
 
-function Sidenav({ color, routes, miniSidenav, setMiniSidenav, ...rest }) {
+function Sidenav({ color, routes, miniSidenav, mobile, setMiniSidenav, ...rest }) {
   const { palette } = useTheme();
   const transparentSidenav = false;
   const darkMode = palette.mode === 'dark';
@@ -62,24 +62,6 @@ function Sidenav({ color, routes, miniSidenav, setMiniSidenav, ...rest }) {
   }
 
   const closeSidenav = () => setMiniSidenav(true);
-
-  useEffect(() => {
-    // A function that sets the mini state of the sidenav.
-    function handleMiniSidenav() {
-      setMiniSidenav(true);
-    }
-
-    /** 
-     The event listener that's calling the handleMiniSidenav function when resizing the window.
-    */
-    window.addEventListener('resize', handleMiniSidenav);
-
-    // Call the handleMiniSidenav function to set the state with the initial value.
-    handleMiniSidenav();
-
-    // Remove event listener on cleanup
-    return () => window.removeEventListener('resize', handleMiniSidenav);
-  }, [collapseName]);
 
   // Render all the routes from the routes.js (All the visible items on the Sidenav)
   const renderRoutes = routes.map(
@@ -161,24 +143,26 @@ function Sidenav({ color, routes, miniSidenav, setMiniSidenav, ...rest }) {
           p={1.625}
           onClick={closeSidenav}
           sx={{ cursor: 'pointer' }}>
-          <Typography variant="h6" color="secondary">
+          <Typography variant="h6" color="secondary" sx={{ display: !mobile && 'none' }}>
             <Icon sx={{ fontWeight: 'bold' }}>close</Icon>
           </Typography>
         </Box>
         <Box component={NextLink} href="/" display="flex" alignItems="center">
           <Box
             component="img"
-            src="/brand-light.jpeg"
+            src={darkMode ? "/brand-light.png" : "/brand-dark.png" }
             alt="Brand"
-            height="2rem"
-            width="2rem"
+            height="3rem"
+            width="3rem"
+            marginLeft={-1}
           />
           <Box sx={(theme) => sidenavLogoLabel(theme, { miniSidenav })}>
             <Typography
               variant="button"
               fontWeight="medium"
               fontSize={18}
-              color="text.main">
+              marginLeft={2}
+              color="text.primary">
               Mindfulnet
             </Typography>
           </Box>

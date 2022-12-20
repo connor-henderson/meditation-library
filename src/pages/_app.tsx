@@ -18,6 +18,7 @@ import Navbar from '../components/NavBar/Desktop';
 import MobileNavbar from '../components/NavBar/Mobile';
 import { AuthorWithWorks } from './api/hello';
 import breakpoints from '../assets/theme/base/breakpoints';
+import NavLayout from '../components/nav-layout';
 
 const ContentContext = createContext<AuthorWithWorks[]>([]);
 export const useContentContext = () => useContext(ContentContext);
@@ -54,9 +55,20 @@ export default function App({ Component, pageProps }: AppProps) {
       setOnMouseEnter(false);
     }
   };
+
   useEffect(() => {
-    const smallWindow = window.innerWidth <= breakpoints.values.sm;
-    setMobile(smallWindow);
+    const handleMiniSidenav = () => setMiniSidenav(true);
+    window.addEventListener('resize', handleMiniSidenav);
+    return () => window.removeEventListener('resize', handleMiniSidenav);
+  }, []);
+
+  useEffect(() => {
+    function handleDisabled() {
+      return window.innerWidth >= breakpoints.values.lg ? setMobile(false) : setMobile(true);
+    }
+    window.addEventListener("resize", handleDisabled);
+    console.log(handleDisabled());
+    return () => window.removeEventListener("resize", handleDisabled);
   }, []);
 
   return (
@@ -68,30 +80,33 @@ export default function App({ Component, pageProps }: AppProps) {
         </Head>
         <CssBaseline />
         <SessionProvider session={pageProps.session} refetchInterval={5 * 60}>
-          <Sidenav
-            color="info"
-            routes={routes}
-            onMouseEnter={handleOnMouseEnter}
-            onMouseLeave={handleOnMouseLeave}
-            setMiniSidenav={setMiniSidenav}
-            miniSidenav={miniSidenav}
-          />
-          {mobile ? (
-            <MobileNavbar setMiniSidenav={setMiniSidenav}>
-              <p>test</p>
-            </MobileNavbar>
-          ) : (
-            <Navbar setMiniSidenav={setMiniSidenav} miniSidenav={miniSidenav} />
-          )}
-          <Container>
-            <Box sx={{ my: 6, marginX: 10 }}>
+          <NavLayout miniSidenav={miniSidenav}>
+            <Sidenav
+              color="info"
+              routes={routes}
+              onMouseEnter={handleOnMouseEnter}
+              onMouseLeave={handleOnMouseLeave}
+              setMiniSidenav={setMiniSidenav}
+              miniSidenav={miniSidenav}
+              mobile={mobile}
+            />
+            {mobile ? (
+              <MobileNavbar setMiniSidenav={setMiniSidenav}>
+                <p>test</p>
+              </MobileNavbar>
+            ) : (
+              <Navbar
+                setMiniSidenav={setMiniSidenav}
+                miniSidenav={miniSidenav}
+              />
+            )}
+            <Box py={5}>
               <Component {...pageProps} />
             </Box>
-          </Container>
-          <Button onClick={() => setDarkMode(!darkMode)}>
-            Toggle Dark Mode
-          </Button>
-          <Divider />
+            <Button onClick={() => setDarkMode(!darkMode)}>
+              Toggle Dark Mode
+            </Button>
+          </NavLayout>
         </SessionProvider>
       </ContentContext.Provider>
     </ThemeProvider>

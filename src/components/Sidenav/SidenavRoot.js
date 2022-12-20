@@ -46,7 +46,7 @@ export default styled(Drawer)(({ theme, ownerState }) => {
       duration: transitions.duration.shorter,
     }),
 
-    [breakpoints.up("xl")]: {
+    [breakpoints.up("lg")]: {
       boxShadow: transparentSidenav ? "none" : xxl,
       marginBottom: transparentSidenav ? 0 : "inherit",
       left: "0",
@@ -69,7 +69,7 @@ export default styled(Drawer)(({ theme, ownerState }) => {
       duration: transitions.duration.shorter,
     }),
 
-    [breakpoints.up("xl")]: {
+    [breakpoints.up("lg")]: {
       boxShadow: transparentSidenav ? "none" : xxl,
       marginBottom: transparentSidenav ? 0 : "inherit",
       left: "0",
