@@ -1,6 +1,6 @@
 import { Typography } from "@mui/material";
 import { useState } from "react";
-import Navbar from "../components/NavBar";
+import Navbar from "../components/NavBar/Desktop";
 import Sidenav from "../components/OLD-sidenav"
 
 const Home = () => {

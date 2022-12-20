@@ -94,6 +94,7 @@ const collapseIcon = ({ palette: { white, gradients } }, { active }) => ({
 function collapseText(theme, ownerState) {
   const { typography, transitions, breakpoints } = theme;
   const { miniSidenav, active } = ownerState;
+  console.log('miniSide', miniSidenav)
 
   const { size, fontWeightRegular, fontWeightLight } = typography;
 
@@ -101,9 +102,9 @@ function collapseText(theme, ownerState) {
     marginLeft: pxToRem(10),
 
     [breakpoints.up("xl")]: {
-      opacity: miniSidenav || miniSidenav ? 0 : 1,
-      maxWidth: miniSidenav || miniSidenav ? 0 : "100%",
-      marginLeft: miniSidenav || miniSidenav ? 0 : pxToRem(10),
+      opacity: miniSidenav ? 0 : 1,
+      maxWidth: miniSidenav ? 0 : "100%",
+      marginLeft: miniSidenav ? 0 : pxToRem(10),
       transition: transitions.create(["opacity", "margin"], {
         easing: transitions.easing.easeInOut,
         duration: transitions.duration.standard,

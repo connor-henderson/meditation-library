@@ -53,35 +53,41 @@ import SearchIcon from '@mui/icons-material/Search';
 
 const routes = [
   {
+    type: "title",
+    title: "Library",
+    component: <p>test</p>,
+  },
+  {
     type: "collapse",
     name: "Search",
-    key: "search",
-    icon: <SearchIcon />,
-    route: "/search",
+    icon: <Icon fontSize="small">search</Icon>,
+    route: "search",
     component: <p>test</p>,
   },
   {
     type: "collapse",
     name: "Authors",
-    key: "authors",
-    icon: <ContactPageIcon />,
-    route: "/authors",
+    icon: <Icon fontSize="small">contact_page</Icon>,
+    route: "authors",
     component: <p>test</p>,
   },
   {
     type: "collapse",
     name: "Works",
-    key: "works",
-    icon: <MenuBookIcon />,
-    route: "/works",
+    icon: <Icon fontSize="small">menu_book</Icon>,
+    route: "works",
+    component: <p>test</p>,
+  },
+  {
+    type: "title",
+    title: "Account",
     component: <p>test</p>,
   },
   {
     type: "collapse",
     name: "Sign In/Up",
-    key: "sign-in",
     icon: <Icon fontSize="small">login</Icon>,
-    route: "/sidenav/sign-in",
+    route: "sidenav/sign-in",
     component: <p>test</p>,
   },
 ];

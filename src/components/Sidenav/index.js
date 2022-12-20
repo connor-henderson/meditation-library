@@ -20,7 +20,6 @@ import { useEffect } from 'react';
 import NextLink from 'next/link';
 
 // prop-types is a library for typechecking of props.
-import PropTypes from 'prop-types';
 
 // @mui material components
 import List from '@mui/material/List';
@@ -44,6 +43,7 @@ import sidenavLogoLabel from '../Sidenav/styles/sidenav';
 import { useRouter } from 'next/router';
 import { Box, Typography, useTheme } from '@mui/material';
 
+
 function Sidenav({ color, routes, miniSidenav, setMiniSidenav, ...rest }) {
   const { palette } = useTheme();
   const transparentSidenav = false;
@@ -66,7 +66,7 @@ function Sidenav({ color, routes, miniSidenav, setMiniSidenav, ...rest }) {
   useEffect(() => {
     // A function that sets the mini state of the sidenav.
     function handleMiniSidenav() {
-      setMiniSidenav(false);
+      setMiniSidenav(true);
     }
 
     /** 
@@ -83,14 +83,15 @@ function Sidenav({ color, routes, miniSidenav, setMiniSidenav, ...rest }) {
 
   // Render all the routes from the routes.js (All the visible items on the Sidenav)
   const renderRoutes = routes.map(
-    ({ type, name, icon, title, noCollapse, key, href, route }) => {
+    ({ type, name, icon, title, noCollapse, href, route }) => {
       let returnValue;
+      console.log('coll', collapseName);
 
       if (type === 'collapse') {
         returnValue = href ? (
           <Link
             href={href}
-            key={key}
+            key={route}
             target="_blank"
             rel="noreferrer"
             sx={{ textDecoration: 'none' }}>
@@ -98,29 +99,31 @@ function Sidenav({ color, routes, miniSidenav, setMiniSidenav, ...rest }) {
               <SidenavCollapse
                 name={name}
                 icon={icon}
-                active={key === collapseName}
+                active={route === collapseName}
                 noCollapse={noCollapse}
               />
             </a>
           </Link>
         ) : (
-          <NextLink href={`/${route}`} passHref key={key}>
+          <NextLink href={`/${route}`} passHref key={route}>
             <SidenavCollapse
               name={name}
               icon={icon}
-              active={key === collapseName}
+              active={route === collapseName}
+              miniSidenav={miniSidenav}
             />
           </NextLink>
         );
       } else if (type === 'title') {
         returnValue = (
           <Typography
-            key={key}
+            key={route}
             color={textColor}
             display="block"
             variant="caption"
             fontWeight="bold"
             textTransform="uppercase"
+            sx={{ opacity: miniSidenav ? 0 : 1 }}
             pl={3}
             mt={2}
             mb={1}
@@ -131,7 +134,7 @@ function Sidenav({ color, routes, miniSidenav, setMiniSidenav, ...rest }) {
       } else if (type === 'divider') {
         returnValue = (
           <Divider
-            key={key}
+            key={route}
             light={
               (!darkMode && !whiteSidenav && !transparentSidenav) ||
               (darkMode && !transparentSidenav && whiteSidenav)
@@ -163,8 +166,7 @@ function Sidenav({ color, routes, miniSidenav, setMiniSidenav, ...rest }) {
             <Icon sx={{ fontWeight: 'bold' }}>close</Icon>
           </Typography>
         </Box>
-        <Box display="flex" alignItems="center">
-          {/* component={NextLink} to="/"  in Box above*/}
+        <Box component={NextLink} href="/" display="flex" alignItems="center">
           <Box
             component="img"
             src="/brand-light.jpeg"
@@ -177,7 +179,7 @@ function Sidenav({ color, routes, miniSidenav, setMiniSidenav, ...rest }) {
               variant="button"
               fontWeight="medium"
               fontSize={18}
-              color={darkMode ? 'white.main' : 'dark.main'}>
+              color="text.main">
               Mindfulnet
             </Typography>
           </Box>
@@ -188,27 +190,5 @@ function Sidenav({ color, routes, miniSidenav, setMiniSidenav, ...rest }) {
     </SidenavRoot>
   );
 }
-
-// Setting default values for the props of Sidenav
-Sidenav.defaultProps = {
-  color: 'info',
-  brand: '',
-};
-
-// Typechecking props for the Sidenav
-Sidenav.propTypes = {
-  color: PropTypes.oneOf([
-    'primary',
-    'secondary',
-    'info',
-    'success',
-    'warning',
-    'error',
-    'dark',
-  ]),
-  brand: PropTypes.string,
-  brandName: PropTypes.string.isRequired,
-  routes: PropTypes.arrayOf(PropTypes.object).isRequired,
-};
 
 export default Sidenav;

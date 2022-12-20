@@ -1,17 +1,28 @@
 import '../../styles/globals.css';
 import type { AppProps } from 'next/app';
 import { SessionProvider } from 'next-auth/react';
-import { Button, CssBaseline, Divider, Icon, ThemeProvider } from '@mui/material';
+import {
+  Box,
+  Button,
+  Container,
+  CssBaseline,
+  Divider,
+  Icon,
+  ThemeProvider,
+} from '@mui/material';
 import theme from '../assets/theme';
 import themeDark from '../assets/theme-dark';
 import { useState } from 'react';
 import Head from 'next/head';
 import Sidenav from '../components/Sidenav';
 import routes from '../components/Sidenav/routes';
+import Navbar from '../components/NavBar/Desktop';
+import MobileNavbar from '../components/NavBar/Mobile';
+import breakpoints from '../assets/theme/base/breakpoints';
 
 export default function App({ Component, pageProps }: AppProps) {
   const [darkMode, setDarkMode] = useState(false);
-  const [miniSidenav, setMiniSidenav] = useState(false);
+  const [miniSidenav, setMiniSidenav] = useState(true);
   const [onMouseEnter, setOnMouseEnter] = useState(false);
 
   // Open sidenav when mouse enter on mini sidenav
@@ -39,29 +50,32 @@ export default function App({ Component, pageProps }: AppProps) {
       <CssBaseline />
       <Icon></Icon>
       <SessionProvider session={pageProps.session} refetchInterval={5 * 60}>
-        <Component {...pageProps} />
         <Sidenav
-              color="info"
-              routes={routes}
-              onMouseEnter={handleOnMouseEnter}
-              onMouseLeave={handleOnMouseLeave}
-              setMiniSidenav={setMiniSidenav}
-              miniSidenav={miniSidenav}
-            />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
+          color="info"
+          routes={routes}
+          onMouseEnter={handleOnMouseEnter}
+          onMouseLeave={handleOnMouseLeave}
+          setMiniSidenav={setMiniSidenav}
+          miniSidenav={miniSidenav}
+        />
+        {window.innerWidth <= breakpoints.values.md ? (
+          <MobileNavbar><p>test</p></MobileNavbar>
+        ) : (
+          <Navbar setMiniSidenav={setMiniSidenav} miniSidenav={miniSidenav} />
+        )}
+        <Container>
+          <Box sx={{ my: 2 }}>
+            {[...new Array(12)]
+              .map(
+                () => `Cras mattis consectetur purus sit amet fermentum.
+Cras justo odio, dapibus ac facilisis in, egestas eget quam.
+Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
+Praesent commodo cursus magna, vel scelerisque nisl consectetur et.`
+              )
+              .join('\n')}
+          </Box>
+        </Container>
+        <Component {...pageProps} />
         <Button onClick={() => setDarkMode(!darkMode)}>Toggle Dark Mode</Button>
         <Divider />
       </SessionProvider>

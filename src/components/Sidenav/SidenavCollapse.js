@@ -37,15 +37,15 @@ import {
 // import { useMaterialUIController } from "context";
 import { Box, useTheme } from "@mui/material";
 
-function SidenavCollapse({ icon, name, active, ...rest }) {
+function SidenavCollapse({ icon, name, active, miniSidenav, ...rest }) {
   // const [controller] = useMaterialUIController();
   // const { miniSidenav, transparentSidenav, whiteSidenav, darkMode, sidenavColor } = controller;
   const { palette } = useTheme();
   const darkMode = palette.mode === 'dark';
   const whiteSidenav = !darkMode;
   const transparentSidenav = false;
-  const miniSidenav = false; 
   const sidenavColor = "info";
+  console.log('miniSideUpper', miniSidenav)
 
   return (
     <ListItem component="li">
