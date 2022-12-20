@@ -85,7 +85,6 @@ function Sidenav({ color, routes, miniSidenav, setMiniSidenav, ...rest }) {
   const renderRoutes = routes.map(
     ({ type, name, icon, title, noCollapse, href, route }) => {
       let returnValue;
-      console.log('coll', collapseName);
 
       if (type === 'collapse') {
         returnValue = href ? (

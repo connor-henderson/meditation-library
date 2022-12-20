@@ -1,15 +1,15 @@
 import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import CssBaseline from '@mui/material/CssBaseline';
 import useScrollTrigger from '@mui/material/useScrollTrigger';
-import Box from '@mui/material/Box';
-import Container from '@mui/material/Container';
 import Slide from '@mui/material/Slide';
+import MenuIcon from '@mui/icons-material/Menu';
+import navbarContainer from '../Desktop/styles';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
 interface Props {
   children: React.ReactElement;
+  setMiniSidenav: (miniSidenav: boolean) => void;
 }
 
 function HideOnScroll(props: Props) {
@@ -24,14 +24,15 @@ function HideOnScroll(props: Props) {
 }
 
 export default function MobileNavbar(props: Props) {
+  const { setMiniSidenav } = props;
+
   return (
     <>
       <HideOnScroll {...props}>
-        <AppBar sx={({ palette }) => ({ backgroundColor: palette.mode === 'dark' ? 'dark.main': 'light.main'})}>
-          <Toolbar>
-            <Typography variant="h6" component="div">
-              Scroll to hide App bar
-            </Typography>
+        <AppBar>
+          <Toolbar sx={{ ...navbarContainer, marginLeft: 0 }}>
+            <MenuIcon onClick={() => setMiniSidenav(false)} />
+            <AccountCircleIcon fontSize="medium" />
           </Toolbar>
         </AppBar>
       </HideOnScroll>

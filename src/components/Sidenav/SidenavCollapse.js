@@ -45,7 +45,6 @@ function SidenavCollapse({ icon, name, active, miniSidenav, ...rest }) {
   const whiteSidenav = !darkMode;
   const transparentSidenav = false;
   const sidenavColor = "info";
-  console.log('miniSideUpper', miniSidenav)
 
   return (
     <ListItem component="li">

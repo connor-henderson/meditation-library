@@ -94,8 +94,6 @@ const collapseIcon = ({ palette: { white, gradients } }, { active }) => ({
 function collapseText(theme, ownerState) {
   const { typography, transitions, breakpoints } = theme;
   const { miniSidenav, active } = ownerState;
-  console.log('miniSide', miniSidenav)
-
   const { size, fontWeightRegular, fontWeightLight } = typography;
 
   return {

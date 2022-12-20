@@ -7,11 +7,8 @@ const navbarContainer: SxProps<Theme> = {
   pt: 0.5,
   pb: 0.5,
   color: "text.primary",
-  marginLeft: 31
+  marginLeft: 31,
+  backgroundColor: "background.default"
 };
-
-export const iconsStyle = (palette: Palette) => ({
-  color: palette.mode === 'dark' ? palette.white.main : palette.dark.main,
-});
 
 export default navbarContainer;
