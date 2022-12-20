@@ -21,6 +21,7 @@ import InfoIcon from '@mui/icons-material/Info';
 import PersonIcon from '@mui/icons-material/Person';
 import MenuOpenIcon from '@mui/icons-material/MenuOpen';
 import MDInput from '../../MD/MDInput';
+import Link from 'next/link';
 
 type PropTypes = {
   miniSidenav: boolean;
@@ -47,17 +48,36 @@ const Navbar = ({ setMiniSidenav, miniSidenav }: PropTypes) => {
               <MenuOpenIcon fontSize="medium" />
             )}
           </IconButton>
-          <IconButton sx={{ marginLeft: 3 }} size="small" color="inherit">
-            <HomeIcon fontSize="medium" />
+
+          <IconButton
+            sx={{ marginLeft: 3 }}
+            size="small"
+            color="default"
+            disableRipple>
+            <Link href="/" passHref style={{ color: 'inherit' }}>
+              <HomeIcon fontSize="medium" />
+            </Link>
           </IconButton>
         </Box>
         <Box>
           <MDInput label="Search by title..."></MDInput>
-          <IconButton sx={{ marginLeft: 3 }} size="small" color="inherit">
-            <InfoIcon fontSize="medium" />
+          <IconButton
+            sx={{ marginLeft: 3 }}
+            size="small"
+            color="default"
+            disableRipple>
+            <Link href="/about" passHref style={{ color: 'inherit' }}>
+              <InfoIcon fontSize="medium" />
+            </Link>
           </IconButton>
-          <IconButton sx={{ marginLeft: 3 }} size="small" color="inherit">
-            <PersonIcon fontSize="medium" />
+          <IconButton
+            sx={{ marginLeft: 3 }}
+            size="small"
+            color="default"
+            disableRipple>
+            <Link href="/account" passHref style={{ color: 'inherit' }}>
+              <PersonIcon fontSize="medium" />
+            </Link>
           </IconButton>
         </Box>
       </Toolbar>
